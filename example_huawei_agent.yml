@@ -1,0 +1,7 @@
+"version": 1
+"control-service":
+   "hostname": "Docker"
+   "port": 4524
+"dataset":
+    "backend": "huawei_oceanstor_flocker_plugin"
+    "huawei_conf_file": "/etc/flocker/flocker_huawei_conf.xml"

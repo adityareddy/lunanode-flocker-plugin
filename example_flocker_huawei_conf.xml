@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<config>
+	<Storage>
+		<Product>V3</Product>
+		<Protocol>iSCSI</Protocol>
+		<RestURL>https://100.97.50.242:8088/deviceManager/rest/</RestURL>
+		<UserName>admin</UserName>
+		<UserPassword>Admin@storage1</UserPassword>
+	</Storage>
+        <LUN>
+                <LUNType>Thin</LUNType>
+                <StripUnitSize>64</StripUnitSize>
+                <WriteType>1</WriteType>
+                <MirrorSwitch>0</MirrorSwitch>
+                <Prefetch Type="1" Value="10" />
+                <StoragePool>StoragePool001</StoragePool>
+        </LUN>
+	<iSCSI>
+		<DefaultTargetIP>111.111.101.243</DefaultTargetIP>
+		<Initiator Name="iqn.1993-08.org.debian:01:e4ad552024c6" TargetIP="111.111.101.87" />
+	</iSCSI>
+	<Host HostIP="100.97.5.87" OSType="Linux" />
+</config>
