@@ -93,7 +93,7 @@ class HuaweiBlockDeviceAPI(object):
         volume = BlockDeviceVolume(
             size=int(size),
             attached_to=None,
-            dataset_id=UUID(dataset_id),
+            dataset_id=dataset_id,
             blockdevice_id=unicode(result['volume_id'])
         )
         return volume
@@ -147,7 +147,8 @@ class HuaweiBlockDeviceAPI(object):
             raise AlreadyAttachedVolume(blockdevice_id)
 
         result = self.api.request('volume', 'attach', {'region': 'toronto', 'volume_id': blockdevice_id, 'vm_id': attach_to, 'target': 'auto'})
-
+        result = self.api.request('volume', 'info', {'region': 'toronto', 'volume_id': blockdevice_id})
+        
         attached_volume = BlockDeviceVolume(
             size=int(result['volume']['size']),
             attached_to=unicode(attach_to),
